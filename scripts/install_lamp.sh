@@ -32,5 +32,18 @@ systemctl restart apache2
 # Instalación de PHPMyAdmin
 sudo zypper -n install php-mbstring php-zip php-json php-gd php-fpm php-xml
 
-# Reincio 
+# Reincio del servicio apache
 systemctl restart apache2
+
+# Instalación de wget
+zypper -n install wget
+
+# Descargamos el código fuente de phpMyAdmin
+sudo wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz
+
+# Descomprimimos el archivo que acabamos de descargar
+sudo tar xfv phpMyAdmin-latest-all-languages.tar.gz
+
+# Eliminamos el archivo .tar.gz
+sudo rm phpMyAdmin-latest-all-languages.tar.gz
+
