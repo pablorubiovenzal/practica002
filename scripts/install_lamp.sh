@@ -47,3 +47,5 @@ sudo tar xfv phpMyAdmin-latest-all-languages.tar.gz
 # Eliminamos el archivo .tar.gz
 sudo rm phpMyAdmin-latest-all-languages.tar.gz
 
+# Renombramos el directorio
+sudo mv phpMyAdmin-5.2.2-all-languages/ phpmyadmin
