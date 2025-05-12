@@ -54,5 +54,4 @@ sudo mv phpMyAdmin-5.2.2-all-languages/ phpmyadmin
 sudo chown -R wwwrun:wwwrun /srv/www/htdocs/index.html
 
 # Creamos el archivo de configuración a partir del archivo de ejemplo config.sample.inc.php.
-sudo cp phpmyadmin/config.sample.inc.php /srv/www/htdocs/phpmyadmin/config.inc.php
-
+cp /srv/www/htdocs/phpmyadmin/config.sample.inc.php /srv/www/htdocs/phpmyadmin/config.inc.php
