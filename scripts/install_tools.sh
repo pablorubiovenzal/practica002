@@ -30,3 +30,10 @@ sudo chown -R wwwrun:wwwrun /srv/www/htdocs/index.html
 
 # Creamos el archivo de configuración a partir del archivo de ejemplo config.sample.inc.php.
 cp /srv/www/htdocs/phpmyadmin/config.sample.inc.php /srv/www/htdocs/phpmyadmin/config.inc.php
+
+# -- Modificamos la variable cfg['blowfish_secret'] con sed --
+# Creamos la variable aleatoria 'aleatoria'
+aleatoria='openssl rand -hex 16'
+echo $aleatoria
+
+# /srv/www/htdocs/phpmyadmin
