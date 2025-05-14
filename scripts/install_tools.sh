@@ -23,7 +23,7 @@ sudo tar xfv phpMyAdmin-latest-all-languages.tar.gz
 sudo rm phpMyAdmin-latest-all-languages.tar.gz
 
 # Renombramos el directorio
-sudo mv phpMyAdmin-5.2.2-all-languages/ phpmyadmin
+sudo mv -n phpMyAdmin-5.2.2-all-languages/ phpmyadmin
 
 # Modificamos el propietario y el grupo del directorio
 sudo chown -R wwwrun:wwwrun /srv/www/htdocs/index.html
@@ -33,7 +33,8 @@ cp /srv/www/htdocs/phpmyadmin/config.sample.inc.php /srv/www/htdocs/phpmyadmin/c
 
 # -- Modificamos la variable cfg['blowfish_secret'] con sed --
 # Creamos la variable aleatoria 'aleatoria'
-aleatoria='openssl rand -hex 16'
-echo $aleatoria
+aleatoria=`openssl rand -hex 16`
 
+# Modificamos la variable blowfish_secret en el archivo de configuración
+sed -i "s/\(\$cfg\['blowfish_secret'\] =\).*/\1 '$aleatoria';/" /srv/www/htdocs/phpmyadmin/config.inc.php
 # /srv/www/htdocs/phpmyadmin
