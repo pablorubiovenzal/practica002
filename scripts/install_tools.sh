@@ -37,4 +37,8 @@ aleatoria=`openssl rand -hex 16`
 
 # Modificamos la variable blowfish_secret en el archivo de configuración
 sed -i "s/\(\$cfg\['blowfish_secret'\] =\).*/\1 '$aleatoria';/" /srv/www/htdocs/phpmyadmin/config.inc.php
+
+# -- Modificamos la variable cfg['TempDir'] con sed --
+sed -i "/blowfish_secret/a \$cfg\['TempDir'\] = '/tmp';" /srv/www/htdocs/phpmyadmin/config.inc.php 
+
 # /srv/www/htdocs/phpmyadmin
