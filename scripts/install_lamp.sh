@@ -13,7 +13,7 @@ zypper -n install httpd
 zypper -n install mysql-server
 
 # Iniciamos mysqld
-systemctl start mysqld
+systemctl start mysql
 
 # Instalación de php, debo poner php8 porque no detecta la original
 zypper -n install php8
