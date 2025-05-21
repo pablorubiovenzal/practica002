@@ -41,4 +41,7 @@ sed -i "s/\(\$cfg\['blowfish_secret'\] =\).*/\1 '$aleatoria';/" /srv/www/htdocs/
 # -- Modificamos la variable cfg['TempDir'] con sed --
 sed -i "/blowfish_secret/a \$cfg\['TempDir'\] = '/tmp';" /srv/www/htdocs/phpmyadmin/config.inc.php 
 
+# Una vez terminado todo el proceso, se modifica el propietario y el grupo del directorio /srv/www/htdocs
+# chown -R ec2-user o root
+
 # /srv/www/htdocs/phpmyadmin
