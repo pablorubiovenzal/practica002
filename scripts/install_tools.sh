@@ -44,4 +44,7 @@ sed -i "/blowfish_secret/a \$cfg\['TempDir'\] = '/tmp';" /srv/www/htdocs/phpmyad
 # Una vez terminado todo el proceso, se modifica el propietario y el grupo del directorio /srv/www/htdocs
 # chown -R ec2-user o root
 
-# /srv/www/htdocs/phpmyadmin
+# /srv/www/htdocs/phpmyadmin = /var/www/html/phpmyadmin
+
+# Parece ser, y puede que me esté equivocando, que al instalar phpmyadmin y mariaDB en SUSE Linux no se genera el archivo de create_table.sql
+# De forma automatica, así que la creo y hago que install_tools llame el comando para 
