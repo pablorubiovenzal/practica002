@@ -46,5 +46,9 @@ sed -i "/blowfish_secret/a \$cfg\['TempDir'\] = '/tmp';" /srv/www/htdocs/phpmyad
 
 # /srv/www/htdocs/phpmyadmin = /var/www/html/phpmyadmin
 
-# Parece ser, y puede que me esté equivocando, que al instalar phpmyadmin y mariaDB en SUSE Linux no se genera el archivo de create_table.sql
-# De forma automatica, así que la creo y hago que install_tools llame el comando para 
+# Creamo una tabla
+mysql -u root < /srv/www/htdocs/phpmyadmin/phpMyAdmin-5.2.2-all-languages/sql/create_tables.sql
+
+mysql -u root <<< "DROP USER IF EXISTS $PMA_USER@'%'"
+mysql -u root <<< "CREATE USER $PMA_USER@'%' IDENTIFIED BY '$PMA_PASS'"
+mysql -u root <<< "GRANT ALL PRIVILEGES ON $PMA_DB.* TO $PMA_USER@'%'"
