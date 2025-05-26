@@ -23,7 +23,7 @@ sudo tar xfv phpMyAdmin-latest-all-languages.tar.gz
 sudo rm phpMyAdmin-latest-all-languages.tar.gz
 
 # Renombramos el directorio
-sudo mv -n phpMyAdmin-5.2.2-all-languages/ phpmyadmin
+sudo mv -n phpMyAdmin-5.2.2-all-languages/ /srv/www/htdocs/phpmyadmin
 
 # Modificamos el propietario y el grupo del directorio
 sudo chown -R wwwrun:wwwrun /srv/www/htdocs/index.html
