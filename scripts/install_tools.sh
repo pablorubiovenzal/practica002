@@ -1,6 +1,8 @@
 #!/bin/bash
 
 set -ex
+
+source .env
 # Esto me ayudó chatgpt: ver versiones de php
 # zypper se -s php | grep ^i
 
@@ -24,6 +26,9 @@ sudo rm phpMyAdmin-latest-all-languages.tar.gz
 
 # Renombramos el directorio
 sudo mv -n phpMyAdmin-5.2.2-all-languages/ /srv/www/htdocs/phpmyadmin
+
+# Borrar carpeta
+rm -rf phpMyAdmin-5.2.2-all-languages/
 
 # Modificamos el propietario y el grupo del directorio
 sudo chown -R wwwrun:wwwrun /srv/www/htdocs/index.html
@@ -49,6 +54,6 @@ sed -i "/blowfish_secret/a \$cfg\['TempDir'\] = '/tmp';" /srv/www/htdocs/phpmyad
 # Creamo una tabla
 mysql -u root < /srv/www/htdocs/phpmyadmin/phpMyAdmin-5.2.2-all-languages/sql/create_tables.sql
 
-mysql -u root <<< "DROP USER IF EXISTS $PMA_USER@'%'"
-mysql -u root <<< "CREATE USER $PMA_USER@'%' IDENTIFIED BY '$PMA_PASS'"
-mysql -u root <<< "GRANT ALL PRIVILEGES ON $PMA_DB.* TO $PMA_USER@'%'"
+mysql -u root -e "DROP USER IF EXISTS $PMA_USER@'%'"
+mysql -u root -e "CREATE USER $PMA_USER@'%' IDENTIFIED BY '$PMA_PASS'"
+mysql -u root -e "GRANT ALL PRIVILEGES ON $PMA_DB.* TO $PMA_USER@'%'"
