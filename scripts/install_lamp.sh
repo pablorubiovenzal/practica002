@@ -4,7 +4,7 @@ set -ex
 # Recuerda zypper y poner zypper -n
 
 # Actualizar to'
-# zypper -n update
+zypper -n update
 
 # Instalación del servidor web apache
 zypper -n install httpd
