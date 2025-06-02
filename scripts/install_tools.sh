@@ -25,7 +25,7 @@ sudo tar xfv phpMyAdmin-latest-all-languages.tar.gz
 sudo rm phpMyAdmin-latest-all-languages.tar.gz
 
 # Renombramos el directorio
-sudo mv -n phpMyAdmin-5.2.2-all-languages/ /srv/www/htdocs/phpmyadmin
+sudo mv -n phpMyAdmin-5.2.2-all-languages/ /srv/www/htdocs/phpmyadmin/
 
 # Borrar carpeta
 rm -rf phpMyAdmin-5.2.2-all-languages/
@@ -47,7 +47,7 @@ sed -i "s/\(\$cfg\['blowfish_secret'\] =\).*/\1 '$aleatoria';/" /srv/www/htdocs/
 sed -i "/blowfish_secret/a \$cfg\['TempDir'\] = '/tmp';" /srv/www/htdocs/phpmyadmin/config.inc.php 
 
 # Una vez terminado todo el proceso, se modifica el propietario y el grupo del directorio /srv/www/htdocs
-# chown -R ec2-user o root
+chown -R ec2-user : root
 
 # /srv/www/htdocs/phpmyadmin = /var/www/html/phpmyadmin
 

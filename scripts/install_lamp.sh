@@ -16,7 +16,7 @@ zypper -n install mysql-server
 systemctl start mysql
 
 # Instalación de php, debo poner php8 porque no detecta la original
-zypper -n install php8
+zypper -n install php8 apache2-mod_php8
 
 # Se puede comprobar la versión con
 # php -v
@@ -24,5 +24,9 @@ zypper -n install php8
 # Instalación de la extensión de PHP para que se conecte con el mysql-server
 zypper -n install php8-mysql
 
+a2enmod php8
+
 # Reiniciamos apache2 después de la instalación
 systemctl restart apache2
+
+
