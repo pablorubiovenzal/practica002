@@ -22,7 +22,7 @@ sudo wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.t
 sudo tar xfv phpMyAdmin-latest-all-languages.tar.gz
 
 # Eliminamos el archivo .tar.gz
-sudo rm phpMyAdmin-latest-all-languages.tar.gz
+rm phpMyAdmin-latest-all-languages.tar.gz
 
 # Renombramos el directorio
 sudo mv -n phpMyAdmin-5.2.2-all-languages/* /srv/www/htdocs/phpmyadmin/
@@ -31,7 +31,7 @@ sudo mv -n phpMyAdmin-5.2.2-all-languages/* /srv/www/htdocs/phpmyadmin/
 rm -rf phpMyAdmin-5.2.2-all-languages/
 
 # Modificamos el propietario y el grupo del directorio
-sudo chown -R wwwrun:wwwrun /srv/www/htdocs/index.html
+sudo chown -R wwwrun:wwwrun /srv/www/htdocs/index.php
 
 # Creamos el archivo de configuración a partir del archivo de ejemplo config.sample.inc.php.
 cp /srv/www/htdocs/phpmyadmin/config.sample.inc.php /srv/www/htdocs/phpmyadmin/config.inc.php
@@ -54,6 +54,6 @@ chown -R wwwrun:wwwrun /srv/www/htdocs/phpmyadmin/
 # Creamo una tabla
 mysql -u root < /srv/www/htdocs/phpmyadmin/phpMyAdmin-5.2.2-all-languages/sql/create_tables.sql
 
-mysql -u root -e "DROP USER IF EXISTS $PMA_USER@'%'"
-mysql -u root -e "CREATE USER $PMA_USER@'%' IDENTIFIED BY '$PMA_PASS'"
-mysql -u root -e "GRANT ALL PRIVILEGES ON $PMA_DB.* TO $PMA_USER@'%'"
+mysql -u root -e "DROP USER IF EXISTS $PMA_USER@'localhost'"
+mysql -u root -e "CREATE USER $PMA_USER@'localhost' IDENTIFIED BY '$PMA_PASS'"
+mysql -u root -e "GRANT ALL PRIVILEGES ON $PMA_DB.* TO $PMA_USER@'localhost'"
